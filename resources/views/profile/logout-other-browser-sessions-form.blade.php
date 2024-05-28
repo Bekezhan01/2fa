@@ -1,15 +1,15 @@
 <x-action-section>
     <x-slot name="title">
-        {{ __('Сеансы в браузере') }}
+        {{ __('Браузердегі сеанстар') }}
     </x-slot>
 
     <x-slot name="description">
-        {{ __('Управляйте своими активными сеансами в других браузерах и на других устройствах и выходите из них.') }}
+        {{ __('Белсенді сеанстарды басқа браузерлерде және басқа құрылғыларда басқарыңыз және олардан шығыңыз.') }}
     </x-slot>
 
     <x-slot name="content">
         <div class="max-w-xl text-sm text-gray-600">
-            {{ __('При необходимости вы можете выйти из всех других сеансов работы с браузером на всех ваших устройствах. Ниже перечислены некоторые из ваших последних сеансов, однако этот список может быть неполным. Если вы считаете, что ваша учетная запись была взломана, вам также следует обновить свой пароль.') }}
+            {{ __('Қажет болса, сіз барлық құрылғылардағы барлық басқа шолғыш сеанстарынан шыға аласыз. Төменде сіздің соңғы сеанстарыңыздың кейбірі келтірілген, бірақ бұл тізім толық болмауы мүмкін. Егер сіздің есептік жазбаңыз бұзылды деп ойласаңыз, парольді де жаңартуыңыз керек.') }}
         </div>
 
         @if (count($this->sessions) > 0)
@@ -39,9 +39,9 @@
                                     {{ $session->ip_address }},
 
                                     @if ($session->is_current_device)
-                                        <span class="text-green-500 font-semibold">{{ __('Это устройство') }}</span>
+                                        <span class="text-green-500 font-semibold">{{ __('Бұл құрылғы') }}</span>
                                     @else
-                                        {{ __('Last active') }} {{ $session->last_active }}
+                                        {{ __('Соңғы белсенді') }} {{ $session->last_active }}
                                     @endif
                                 </div>
                             </div>
@@ -53,27 +53,27 @@
 
         <div class="flex items-center mt-5">
             <x-button wire:click="confirmLogout" wire:loading.attr="disabled">
-                {{ __('Выйдите из других сеансов браузера') }}
+                {{ __('Басқа шолғыш сеанстарынан шығыңыз') }}
             </x-button>
 
             <x-action-message class="ms-3" on="loggedOut">
-                {{ __('Сделано.') }}
+                {{ __('Жасалды.') }}
             </x-action-message>
         </div>
 
         <!-- Log Out Other Devices Confirmation Modal -->
         <x-dialog-modal wire:model.live="confirmingLogout">
             <x-slot name="title">
-                {{ __('Выйдите из других сеансов браузера') }}
+                {{ __('Басқа шолғыш сеанстарынан шығыңыз') }}
             </x-slot>
 
             <x-slot name="content">
-                {{ __('Please enter your password to confirm you would like to log out of your other browser sessions across all of your devices.') }}
+                {{ __('Барлық құрылғыларда басқа шолғыш сеансынан шыққыңыз келетінін растау үшін құпия сөзіңізді енгізіңіз.') }}
 
                 <div class="mt-4" x-data="{}" x-on:confirming-logout-other-browser-sessions.window="setTimeout(() => $refs.password.focus(), 250)">
                     <x-input type="password" class="mt-1 block w-3/4"
                                 autocomplete="current-password"
-                                placeholder="{{ __('Пароль') }}"
+                                placeholder="{{ __('Құпия сөз') }}"
                                 x-ref="password"
                                 wire:model="password"
                                 wire:keydown.enter="logoutOtherBrowserSessions" />
@@ -84,13 +84,13 @@
 
             <x-slot name="footer">
                 <x-secondary-button wire:click="$toggle('confirmingLogout')" wire:loading.attr="disabled">
-                    {{ __('Отменить') }}
+                    {{ __('Бас тарту') }}
                 </x-secondary-button>
 
                 <x-button class="ms-3"
                             wire:click="logoutOtherBrowserSessions"
                             wire:loading.attr="disabled">
-                    {{ __('Выйдите из других сеансов браузера') }}
+                    {{ __('Басқа шолғыш сеанстарынан шығыңыз') }}
                 </x-button>
             </x-slot>
         </x-dialog-modal>

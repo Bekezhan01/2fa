@@ -1,10 +1,10 @@
 <x-form-section submit="updateProfileInformation">
     <x-slot name="title">
-        {{ __('Информация профиля') }}
+        {{ __('Профиль туралы ақпарат') }}
     </x-slot>
 
     <x-slot name="description">
-        {{ __('Обновите информацию профиля вашей учетной записи и адрес электронной почты.') }}
+        {{ __('Тіркелгі профилі туралы ақпаратты және электрондық пошта мекенжайын жаңартыңыз.') }}
     </x-slot>
 
     <x-slot name="form">
@@ -54,7 +54,7 @@
 
         <!-- Name -->
         <div class="col-span-6 sm:col-span-4">
-            <x-label for="name" value="{{ __('Имя') }}" />
+            <x-label for="name" value="{{ __('Есімі') }}" />
             <x-input id="name" type="text" class="mt-1 block w-full" wire:model="state.name" required autocomplete="name" />
             <x-input-error for="name" class="mt-2" />
         </div>
@@ -85,11 +85,11 @@
 
     <x-slot name="actions">
         <x-action-message class="me-3" on="saved">
-            {{ __('Сохраненный.') }}
+            {{ __('Сақталды.') }}
         </x-action-message>
 
         <x-button wire:loading.attr="disabled" wire:target="photo">
-            {{ __('Сохранить') }}
+            {{ __('Сақтау') }}
         </x-button>
     </x-slot>
 </x-form-section>

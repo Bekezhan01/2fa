@@ -1,28 +1,28 @@
 <x-action-section>
     <x-slot name="title">
-        {{ __('Двухфакторная аутентификация') }}
+        {{ __('Екі факторлы аутентификация') }}
     </x-slot>
 
     <x-slot name="description">
-        {{ __('Повысьте безопасность своей учетной записи, используя двухфакторную аутентификацию.') }}
+        {{ __('Екі факторлы аутентификация арқылы есептік жазбаңыздың қауіпсіздігін арттырыңыз.') }}
     </x-slot>
 
     <x-slot name="content">
         <h3 class="text-lg font-medium text-gray-900">
             @if ($this->enabled)
                 @if ($showingConfirmation)
-                    {{ __('Завершите включение двухфакторной аутентификации.') }}
+                    {{ __('Екі факторлы аутентификацияны қосуды аяқтаңыз.') }}
                 @else
-                    {{ __('Вы включили двухфакторную аутентификацию.') }}
+                    {{ __('Сіз екі факторлы аутентификацияны қостыңыз.') }}
                 @endif
             @else
-                {{ __('Вы не включили двухфакторную аутентификацию.') }}
+                {{ __('Сіз екі факторлы аутентификацияны қосқан жоқсыз.') }}
             @endif
         </h3>
 
         <div class="mt-3 max-w-xl text-sm text-gray-600">
             <p>
-                {{ __('Если включена двухфакторная аутентификация, вам будет предложено ввести безопасный случайный токен во время проверки подлинности. Вы можете получить этот токен из приложения Google Authenticator на вашем телефоне.') }}
+                {{ __('Егер екі факторлы аутентификация қосулы болса, сізден аутентификация кезінде қауіпсіз кездейсоқ таңбалауышты енгізу сұралады. Бұл таңбалауышты телефондағы Google Authenticator қолданбасынан алуға болады.') }}
             </p>
         </div>
 
@@ -31,9 +31,9 @@
                 <div class="mt-4 max-w-xl text-sm text-gray-600">
                     <p class="font-semibold">
                         @if ($showingConfirmation)
-                            {{ __('Чтобы завершить включение двухфакторной аутентификации, отсканируйте следующий QR-код с помощью приложения authenticator на вашем телефоне или введите ключ настройки и введите сгенерированный OTP-код.') }}
+                            {{ __('Екі факторлы аутентификацияны қосуды аяқтау үшін телефондағы authenticator қолданбасын пайдаланып келесі QR кодын сканерлеңіз немесе орнату кілтін енгізіп, жасалған OTP кодын енгізіңіз.') }}
                         @else
-                            {{ __('Теперь включена двухфакторная аутентификация. Отсканируйте следующий QR-код с помощью приложения для проверки подлинности на вашем телефоне или введите ключ настройки.') }}
+                            {{ __('Енді екі факторлы аутентификация қосылды. Телефондағы аутентификация қолданбасын пайдаланып келесі QR кодын сканерлеңіз немесе орнату кілтін енгізіңіз.') }}
                         @endif
                     </p>
                 </div>
@@ -64,7 +64,7 @@
             @if ($showingRecoveryCodes)
                 <div class="mt-4 max-w-xl text-sm text-gray-600">
                     <p class="font-semibold">
-                        {{ __('Сохраните эти коды восстановления в безопасном менеджере паролей. Они могут быть использованы для восстановления доступа к вашей учетной записи в случае утери устройства двухфакторной аутентификации.') }}
+                        {{ __('Бұл қалпына келтіру кодтарын қауіпсіз пароль менеджерінде сақтаңыз. Олар екі факторлы аутентификация құрылғысы жоғалған жағдайда есептік жазбаңызға кіруді қалпына келтіру үшін пайдаланылуы мүмкін.') }}
                     </p>
                 </div>
 
@@ -80,26 +80,26 @@
             @if (! $this->enabled)
                 <x-confirms-password wire:then="enableTwoFactorAuthentication">
                     <x-button type="button" wire:loading.attr="disabled">
-                        {{ __('Включить') }}
+                        {{ __('Қосу') }}
                     </x-button>
                 </x-confirms-password>
             @else
                 @if ($showingRecoveryCodes)
                     <x-confirms-password wire:then="regenerateRecoveryCodes">
                         <x-secondary-button class="me-3">
-                            {{ __('Регенерировать коды восстановления') }}
+                            {{ __('Қалпына келтіру кодтарын қалпына келтіріңіз') }}
                         </x-secondary-button>
                     </x-confirms-password>
                 @elseif ($showingConfirmation)
                     <x-confirms-password wire:then="confirmTwoFactorAuthentication">
                         <x-button type="button" class="me-3" wire:loading.attr="disabled">
-                            {{ __('Подтверждать') }}
+                            {{ __('Растау') }}
                         </x-button>
                     </x-confirms-password>
                 @else
                     <x-confirms-password wire:then="showRecoveryCodes">
                         <x-secondary-button class="me-3">
-                            {{ __('Показывать коды восстановления') }}
+                            {{ __('Қалпына келтіру кодтарын көрсету') }}
                         </x-secondary-button>
                     </x-confirms-password>
                 @endif
@@ -107,13 +107,13 @@
                 @if ($showingConfirmation)
                     <x-confirms-password wire:then="disableTwoFactorAuthentication">
                         <x-secondary-button wire:loading.attr="disabled">
-                            {{ __('Отменить') }}
+                            {{ __('Бас тарту') }}
                         </x-secondary-button>
                     </x-confirms-password>
                 @else
                     <x-confirms-password wire:then="disableTwoFactorAuthentication">
                         <x-danger-button wire:loading.attr="disabled">
-                            {{ __('Отключать') }}
+                            {{ __('Өшіру') }}
                         </x-danger-button>
                     </x-confirms-password>
                 @endif

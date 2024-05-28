@@ -5,7 +5,7 @@
         </x-slot>
 
         <div class="mb-4 text-sm text-gray-600">
-            {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+            {{ __('Құпия сөзіңізді ұмытып қалдыңыз ба? Ешқандай проблема жоқ. Бізге электрондық пошта мекенжайыңызды айтыңыз, біз сізге жаңасын таңдауға мүмкіндік беретін құпия сөзді қалпына келтіру сілтемесін жібереміз.') }}
         </div>
 
         @session('status')
@@ -20,13 +20,13 @@
             @csrf
 
             <div class="block">
-                <x-label for="email" value="{{ __('Email') }}" />
+                <x-label for="email" value="{{ __('Эл.почта') }}" />
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
             </div>
 
             <div class="flex items-center justify-end mt-4">
                 <x-button>
-                    {{ __('Email Password Reset Link') }}
+                    {{ __('Электрондық пошта құпия сөзін қалпына келтіру') }}
                 </x-button>
             </div>
         </form>

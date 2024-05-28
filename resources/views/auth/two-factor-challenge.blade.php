@@ -6,11 +6,11 @@
 
         <div x-data="{ recovery: false }">
             <div class="mb-4 text-sm text-gray-600" x-show="! recovery">
-                {{ __('Пожалуйста, подтвердите доступ к своей учетной записи, введя код аутентификации, предоставленный вашим приложением для проверки подлинности.') }}
+                {{ __('Аутентификация қолданбасы ұсынған аутентификация кодын енгізу арқылы тіркелгіңізге кіруді растаңыз.') }}
             </div>
 
             <div class="mb-4 text-sm text-gray-600" x-cloak x-show="recovery">
-                {{ __('Пожалуйста, подтвердите доступ к своей учетной записи, введя один из ваших кодов экстренного восстановления.') }}
+                {{ __('Аутентификация қолданбасы ұсынған аутентификация кодын енгізу арқылы тіркелгіңізге кіруді растаңыз.') }}
             </div>
 
             <x-validation-errors class="mb-4" />
@@ -24,7 +24,7 @@
                 </div>
 
                 <div class="mt-4" x-cloak x-show="recovery">
-                    <x-label for="recovery_code" value="{{ __('Код восстановления') }}" />
+                    <x-label for="recovery_code" value="{{ __('Қалпына келтіру коды') }}" />
                     <x-input id="recovery_code" class="block mt-1 w-full" type="text" name="recovery_code" x-ref="recovery_code" autocomplete="one-time-code" />
                 </div>
 
@@ -35,7 +35,7 @@
                                         recovery = true;
                                         $nextTick(() => { $refs.recovery_code.focus() })
                                     ">
-                        {{ __('Используйте код восстановления') }}
+                        {{ __('Қалпына келтіру кодын пайдаланыңыз') }}
                     </button>
 
                     <button type="button" class="text-sm text-gray-600 hover:text-gray-900 underline cursor-pointer"
@@ -45,11 +45,11 @@
                                         recovery = false;
                                         $nextTick(() => { $refs.code.focus() })
                                     ">
-                        {{ __('Используйте код аутентификации') }}
+                        {{ __('Аутентификация кодын пайдаланыңыз') }}
                     </button>
 
                     <x-button class="ms-4">
-                        {{ __('Войти') }}
+                        {{ __('Кіру') }}
                     </x-button>
                 </div>
             </form>
